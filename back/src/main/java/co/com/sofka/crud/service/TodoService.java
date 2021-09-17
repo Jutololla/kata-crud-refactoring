@@ -25,10 +25,12 @@ public class TodoService {
     }
 
     public DTOTodo save(Todo todo){
+
         return DtoUtility.convertToDtoTodo(repository.save(todo));
     }
 
     public void delete(Long id){
+
         repository.delete(repository.findById(id).orElseThrow());
     }
 

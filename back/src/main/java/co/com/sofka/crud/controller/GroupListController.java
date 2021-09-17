@@ -1,6 +1,7 @@
 package co.com.sofka.crud.controller;
 
 import co.com.sofka.crud.entity.GroupList;
+import co.com.sofka.crud.entity.dto.DTOGroupList;
 import co.com.sofka.crud.service.GroupListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,17 +14,17 @@ public class GroupListController {
     private GroupListService service;
 
     @GetMapping(value = "api/grouplists")
-    public Iterable<GroupList> list(){
+    public Iterable<DTOGroupList> list(){
         return service.list();
     }
 
     @PostMapping(value = "api/grouplist")
-    public GroupList save(@RequestBody GroupList groupList){
+    public DTOGroupList save(@RequestBody GroupList groupList){
         return service.save(groupList);
     }
 
     @PutMapping(value = "api/grouplist")
-    public GroupList update(@RequestBody GroupList groupList){
+    public DTOGroupList update(@RequestBody GroupList groupList){
         if(groupList.getId() != null){
             return service.save(groupList);
         }
@@ -36,7 +37,7 @@ public class GroupListController {
     }
 
     @GetMapping(value = "api/{id}/grouplist")
-    public GroupList get(@PathVariable("id") Long id){
+    public DTOGroupList get(@PathVariable("id") Long id){
         return service.get(id);
     }
 }
