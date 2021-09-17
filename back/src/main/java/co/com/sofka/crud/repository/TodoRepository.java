@@ -1,6 +1,6 @@
-package co.com.sofka.crud.Repository;
+package co.com.sofka.crud.repository;
 
-import co.com.sofka.crud.Entity.Todo;
+import co.com.sofka.crud.entity.Todo;
 import org.springframework.data.repository.CrudRepository;
 
 public interface TodoRepository extends CrudRepository<Todo, Long> {

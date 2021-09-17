@@ -1,19 +1,11 @@
-package co.com.sofka.crud.Entity;
+package co.com.sofka.crud.entity.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+public class DTOGroupList implements DTOEntity{
 
-@Entity
-public class GroudList {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
-    public GroudList() {
+    public DTOGroupList() {
     }
 
     public Long getId() {

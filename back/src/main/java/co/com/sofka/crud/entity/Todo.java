@@ -1,4 +1,4 @@
-package co.com.sofka.crud.Entity;
+package co.com.sofka.crud.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
