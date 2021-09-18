@@ -42,7 +42,9 @@ const GroupCreator = () => {
             headers: {
               'Content-Type': 'application/json'
             }
-          }).then((groupList)=>{
+          }).then(response => response.json())
+          .then((groupList)=>{
+              console.log(groupList);
               dispatch({
                  type: "add-groupList", item: groupList 
               })

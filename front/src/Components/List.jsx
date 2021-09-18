@@ -5,7 +5,7 @@ import Button from 'emerald-ui/lib/Button';
 import Store from './Store';
 
 
-export const List = () => {
+export const List = ({groupListId}) => {
 
   const { dispatch, state: { todo } } = useContext(Store);
   const currentList = todo.list;
@@ -65,8 +65,10 @@ export const List = () => {
         </tr>
       </thead>
       <tbody>
-        {currentList.map((todo) => {
-          return <tr key={todo.id} style={todo.completed ? decorationDone : {}}>
+        {currentList
+        .filter(todo=> todo.groupListId==groupListId)
+        .map((todo) => {
+          return <tr key={todo.id} >
             <td>{todo.id}</td>
             <td>{todo.name}</td>
             <td><input type="checkbox" defaultChecked={todo.completed} onChange={(event) => onChange(event, todo)}></input></td>

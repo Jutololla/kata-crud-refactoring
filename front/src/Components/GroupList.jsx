@@ -26,8 +26,8 @@ const GroupList = () => {
             return (<Panel key={groupList.id}>
                 <Panel.Body>
                     <h1>{groupList.name}</h1>
-                   <Form/>
-                   <List/>
+                   <Form groupListId={groupList.id}  />
+                   <List groupListId={groupList.id}/>
                     </Panel.Body>
             </Panel>
             )
