@@ -17,11 +17,12 @@ export const Form = () => {
   
     const onAdd = (event) => {
       event.preventDefault();
-  
+      if(!state.name){ return;}
+
       const request = {
         name: state.name,
         id: null,
-        completed: false
+        completed: false,
       };
   
   
