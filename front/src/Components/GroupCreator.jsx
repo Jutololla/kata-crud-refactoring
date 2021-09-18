@@ -8,30 +8,6 @@ const GroupCreator = () => {
     const { dispatch } = useContext(Store);
     const [groupName, setGroupName] = useState("")
 
-
-    /* useEffect(() => {
-      fetch(HOST_API + "/todos")
-        .then(response => response.json())
-        .then((list) => {
-          dispatch({ type: "update-list", list })
-        })
-    }, []);
-  
-  
-    const onDelete = (id) => {
-      fetch(HOST_API + "/" + id + "/todo", {
-        method: "DELETE"
-      }).then((list) => {
-        dispatch({ type: "delete-item", id })
-      })
-    };
-  
-    const onEdit = (todo) => {
-      dispatch({ type: "edit-item", item: todo })
-    }; */
-
-
-
     const onAdd = () =>{
         const request = {
             name: groupName}
@@ -60,15 +36,6 @@ const GroupCreator = () => {
 
 
     };
-
-
-
-
-
-
-
-
-
 
     return (<Fragment>
 

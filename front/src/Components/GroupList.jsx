@@ -6,6 +6,7 @@ import Icon from 'emerald-ui/lib/Icon';
 import Store from './Store';
 import List from './List';
 import Form from './Form';
+import IconButton from 'emerald-ui/lib/IconButton';
 
 
 const GroupList = () => {
@@ -20,12 +21,29 @@ const GroupList = () => {
             })
     }, []);
 
+    const deleteGroupList=(groupListId)=>{
+        fetch("http://localhost:8080/api/"+groupListId+"/grouplist",{
+        method: "DELETE"})
+        .then(() => {
+            dispatch({ type: "delete-groupList", id: groupListId })
+        })
+    }
+  /*   const onDelete = (id) => {
+        fetch(HOST_API + "/" + id + "/todo", {
+          method: "DELETE"
+        }).then((list) => {
+          dispatch({ type: "delete-item", id })
+        })
+      };
+ */
 
     return (
         groupList.map((groupList) => {
             return (<Panel key={groupList.id}>
                 <Panel.Body>
-                    <h1>{groupList.name}</h1>
+                    <h1>{groupList.name} <IconButton 
+                    onClick={()=>deleteGroupList(groupList.id)}
+                    ariaLabel="delete" icon="delete" title="delete" color="danger" /> </h1>                    
                    <Form groupListId={groupList.id}  />
                    <List groupListId={groupList.id}/>
                     </Panel.Body>

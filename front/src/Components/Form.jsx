@@ -47,7 +47,8 @@ export const Form = ({groupListId}) => {
       const request = {
         name: state.name,
         id: item.id,
-        isCompleted: item.isCompleted
+        isCompleted: item.isCompleted,
+        groupListId
       };
   
   
