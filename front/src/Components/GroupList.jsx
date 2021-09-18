@@ -1,24 +1,37 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import Panel from 'emerald-ui/lib/Panel';
 import TextField from 'emerald-ui/lib/TextField';
 import Button from 'emerald-ui/lib/Button';
 import Icon from 'emerald-ui/lib/Icon';
+import Store from './Store';
+import List from './List';
+import Form from './Form';
+
 
 const GroupList = () => {
 
+    const { dispatch, state: { groupList } } = useContext(Store);
+
+    useEffect(() => {
+        fetch("http://localhost:8080/api/grouplists")
+            .then(response => response.json())
+            .then((groupList) => {
+                dispatch({ type: "update-groupList", groupList })
+            })
+    }, []);
 
 
-
-    return (<Panel>
-        <Panel.Body>
-                        <TextField label="Label" />
-            <Button>
-                <Icon name="thumb_up" />
-                <span>Default</span>
-            </Button>
-        </Panel.Body>
-    </Panel>
-
+    return (
+        groupList.map((groupList) => {
+            return (<Panel key={groupList.id}>
+                <Panel.Body>
+                    <h1>{groupList.name}</h1>
+                   <Form/>
+                   <List/>
+                    </Panel.Body>
+            </Panel>
+            )
+        })
     );
 }
 

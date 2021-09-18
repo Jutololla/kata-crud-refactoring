@@ -1,6 +1,8 @@
-import React, { useContext, useRef, useState, createContext } from 'react';
+import React, { useContext, useRef, useState} from 'react';
 
 import Store from './Store';
+import TextField from 'emerald-ui/lib/TextField';
+import Button from 'emerald-ui/lib/Button';
 
 export const HOST_API = "http://localhost:8080/api";
 
@@ -65,16 +67,16 @@ export const Form = ({groupListId}) => {
     }
   
     return <form ref={formRef}>
-      <input
+      <TextField
         type="text"
         name="name"
         placeholder="¿Qué piensas hacer hoy?"
         defaultValue={item.name}
         onChange={(event) => {
           setState({ ...state, name: event.target.value })
-        }}  ></input>
-      {item.id && <button onClick={onEdit}>Actualizar</button>}
-      {!item.id && <button onClick={onAdd}>Crear</button>}
+        }} />                 
+      {item.id && <Button onClick={onEdit}>Actualizar</Button>}
+      {!item.id && <Button onClick={onAdd}>Crear</Button>}
     </form>
   }
 

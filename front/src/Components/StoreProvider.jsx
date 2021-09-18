@@ -38,6 +38,9 @@ function reducer(state, action) {
         const groupList = state.groupList;
         groupList.push(action.item);
         return { ...state, groupList}
+        case 'update-groupList':
+        return { ...state, groupList: action.groupList };
+
       
         default:
         return state;

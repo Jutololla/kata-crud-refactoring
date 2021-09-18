@@ -16,7 +16,7 @@ export const List = () => {
       .then((list) => {
         dispatch({ type: "update-list", list })
       })
-  }, [dispatch]);
+  }, []);
 
 
   const onDelete = (id) => {

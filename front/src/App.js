@@ -8,15 +8,13 @@ import GroupCreator from './Components/GroupCreator';
 
 
 function App() {
-  return (  <StoreProvider>
+  return (<StoreProvider>
     <h3>To-Do List</h3>
-  <Form />
-    <List /> 
-  
-  
-    <GroupCreator/>
-    <GroupList/>
-    </StoreProvider>
+    {/* <Form />
+    <List /> */}
+    <GroupCreator />
+    <GroupList />
+  </StoreProvider>
   )
 }
 
