@@ -3,9 +3,10 @@ import { HOST_API } from './Form';
 import Table from 'emerald-ui/lib/Table';
 import Button from 'emerald-ui/lib/Button';
 import Store from './Store';
+import Icon from 'emerald-ui/lib/Icon';
 
 
-export const List = ({groupListId}) => {
+export const List = ({ groupListId }) => {
 
   const { dispatch, state: { todo } } = useContext(Store);
   const currentList = todo.list;
@@ -67,20 +68,24 @@ export const List = ({groupListId}) => {
       </thead>
       <tbody>
         {currentList
-        .filter(todo=> todo.groupListId==groupListId)
-        .map((todo) => {
-          return <tr key={todo.id} >
-            <td>{todo.id}</td>
-            <td>{todo.name}</td>
-            <td><input type="checkbox" defaultChecked={todo.completed} onChange={(event) => onChange(event, todo)}></input></td>
-            <td><Button onClick={() => onDelete(todo.id)}>Eliminar
+          .filter(todo => todo.groupListId == groupListId)
+          .map((todo) => {
+            return <tr key={todo.id} >
+              <td>{todo.id}</td>
+              <td>
+                {todo.completed && <Icon name="check" className="text-success" />}
+                {todo.name}</td>
+              <td><input type="checkbox"
+                defaultChecked={todo.completed}
+                onChange={(event) => onChange(event, todo)}></input></td>
+              <td><Button onClick={() => onDelete(todo.id)}>Eliminar
 
               </Button></td>
-            <td><Button onClick={() => onEdit(todo)}>Editar
+              <td><Button onClick={() => onEdit(todo)}>Editar
 
               </Button></td>
-          </tr>
-        })}
+            </tr>
+          })}
       </tbody>
     </Table>
   </div>

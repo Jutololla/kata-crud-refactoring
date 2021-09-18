@@ -41,7 +41,6 @@ function reducer(state, action) {
     case 'update-groupList':
       return { ...state, groupList: action.groupList };
     case 'delete-groupList':{
-      console.log("drakukeo");
       const groupList = state.groupList;
       const groupListUpdated = groupList.filter((item) => {
         return item.id != action.id;
