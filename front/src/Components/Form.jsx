@@ -1,14 +1,11 @@
 import React, { useContext, useRef, useState, createContext } from 'react';
 
-export const initialState = {
-    todo: { list: [], item: {} }
-  };
-  
-export const Store = createContext(initialState)
+import Store from './Store';
 
 export const HOST_API = "http://localhost:8080/api";
 
-export const Form = () => {
+export const Form = ({groupListId}) => {
+  
     
     const formRef = useRef(null);
     const { dispatch, state: { todo } } = useContext(Store);
@@ -23,6 +20,7 @@ export const Form = () => {
         name: state.name,
         id: null,
         completed: false,
+        groupListId
       };
   
   

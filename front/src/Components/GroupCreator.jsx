@@ -1,11 +1,11 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useContext } from 'react';
 import Button from 'emerald-ui/lib/Button';
 import TextField from 'emerald-ui/lib/TextField';
-import { HOST_API } from './Form';
+import Store from './Store';
 
 const GroupCreator = () => {
 
-
+    const { dispatch } = useContext(Store);
     const [groupName, setGroupName] = useState("")
 
 
@@ -42,7 +42,10 @@ const GroupCreator = () => {
             headers: {
               'Content-Type': 'application/json'
             }
-          }).then(()=>{
+          }).then((groupList)=>{
+              dispatch({
+                 type: "add-groupList", item: groupList 
+              })
               setGroupName("");
           })
         }

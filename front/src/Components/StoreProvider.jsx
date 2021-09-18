@@ -1,6 +1,6 @@
 import React, {useReducer} from 'react';
-import {Store} from './Form';
-import {initialState} from './Form';
+import Store, {initialState} from './Store';
+
 
 function reducer(state, action) {
     switch (action.type) {
@@ -34,8 +34,14 @@ function reducer(state, action) {
         const todoUp = state.todo.list;
         todoUp.push(action.item);
         return { ...state, todo: {list: todoUp, item: {}} }
-      default:
+      case 'add-groupList':
+        const groupList = state.groupList;
+        groupList.push(action.item);
+        return { ...state, groupList}
+      
+        default:
         return state;
+        
     }
   }
 

@@ -11,8 +11,7 @@ const GroupList = () => {
 
     return (<Panel>
         <Panel.Body>
-            
-            <TextField label="Label" />
+                        <TextField label="Label" />
             <Button>
                 <Icon name="thumb_up" />
                 <span>Default</span>

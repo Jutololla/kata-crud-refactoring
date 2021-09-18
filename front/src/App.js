@@ -8,18 +8,16 @@ import GroupCreator from './Components/GroupCreator';
 
 
 function App() {
-  return <Fragment>
-   <div>
-  <StoreProvider>
+  return (  <StoreProvider>
     <h3>To-Do List</h3>
-  
-     <Form />
+  <Form />
     <List /> 
-  </StoreProvider>
-  </div>
+  
+  
     <GroupCreator/>
     <GroupList/>
-  </Fragment>
+    </StoreProvider>
+  )
 }
 
 export default App;
