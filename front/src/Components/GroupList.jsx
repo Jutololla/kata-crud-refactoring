@@ -1,8 +1,5 @@
 import React, { useEffect, useContext } from 'react';
 import Panel from 'emerald-ui/lib/Panel';
-import TextField from 'emerald-ui/lib/TextField';
-import Button from 'emerald-ui/lib/Button';
-import Icon from 'emerald-ui/lib/Icon';
 import Store from './Store';
 import List from './List';
 import Form from './Form';
@@ -19,7 +16,7 @@ const GroupList = () => {
             .then((groupList) => {
                 dispatch({ type: "update-groupList", groupList })
             })
-    }, []);
+    }, [dispatch]);
 
     const deleteGroupList=(groupListId)=>{
         fetch("http://localhost:8080/api/"+groupListId+"/grouplist",{
@@ -28,15 +25,7 @@ const GroupList = () => {
             dispatch({ type: "delete-groupList", id: groupListId })
         })
     }
-  /*   const onDelete = (id) => {
-        fetch(HOST_API + "/" + id + "/todo", {
-          method: "DELETE"
-        }).then((list) => {
-          dispatch({ type: "delete-item", id })
-        })
-      };
- */
-
+ 
     return (
         groupList.map((groupList) => {
             return (<Panel key={groupList.id}>

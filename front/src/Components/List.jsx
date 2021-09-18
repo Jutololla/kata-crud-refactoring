@@ -79,10 +79,8 @@ export const List = ({ groupListId }) => {
                 defaultChecked={todo.completed}
                 onChange={(event) => onChange(event, todo)}></input></td>
               <td><Button onClick={() => onDelete(todo.id)}>Eliminar
-
               </Button></td>
               <td><Button onClick={() => onEdit(todo)}>Editar
-
               </Button></td>
             </tr>
           })}
